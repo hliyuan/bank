@@ -22,6 +22,11 @@ public class GlobalExceptionHandler {
         return WebResponseVo.buildError(ResponseStatus.RESOURCE_NOT_FOUND.getCode(), ex.getMessage());
     }
 
+    /**
+     * 参数不合法异常
+     * @param ex
+     * @return
+     */
     @ResponseBody
     @ExceptionHandler(IllegalParamException.class)
     public WebResponseVo<ErrorResponseData> handleIllegalParamException(
@@ -29,6 +34,11 @@ public class GlobalExceptionHandler {
         return WebResponseVo.buildError(ResponseStatus.ILLEGAL_PARAM.getCode(), ex.getMessage());
     }
 
+    /**
+     * 其他异常
+     * @param ex
+     * @return
+     */
     @ResponseBody
     @ExceptionHandler(Exception.class)
     public WebResponseVo<ErrorResponseData> handleGlobalException(
